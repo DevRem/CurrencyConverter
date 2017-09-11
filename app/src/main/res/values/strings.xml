@@ -9,5 +9,6 @@
 
     <string name="input_amount">Введите сумму</string>
     <string name="outcome_amount">Итоговая сумма</string>
+    <string name="incorrectly_amount">Некорректно указана сумма</string>
 
 </resources>
