@@ -24,7 +24,7 @@ import ru.currencyconverter.activity.adapter.CurrencyAdapter;
 import ru.currencyconverter.activity.presenter.CurrencyPresenter;
 import ru.currencyconverter.net.models.Valute;
 
-public class MainActivity extends AppCompatActivity implements ICurrencyView, View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements ICurrencyView{
 
     private EditText amountFrom;
     private Spinner currencyFrom;
