@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements ICurrencyView, Vi
     private TextView amountTo;
     private Button calculate;
     private LinearLayout progressBar;
+    private ImageView switchCurrency;
 
     private CurrencyAdapter adapterFrom;
     private CurrencyAdapter adapterTo;
@@ -51,8 +52,11 @@ public class MainActivity extends AppCompatActivity implements ICurrencyView, Vi
         currencyTo = (Spinner) findViewById(R.id.spn_currency_to);
         progressBar = (LinearLayout) findViewById(R.id.progressBar);
 
+        switchCurrency = (ImageView) findViewById(R.id.iv_switch_currency);
+        switchCurrency.setOnClickListener(onClickSwitch);
+
         calculate = (Button) findViewById(R.id.calculate);
-        calculate.setOnClickListener(this);
+        calculate.setOnClickListener(onClickCalculate);
 
         presenter = new CurrencyPresenter(this);
         presenter.loadCurrencies();
@@ -103,9 +107,15 @@ public class MainActivity extends AppCompatActivity implements ICurrencyView, Vi
                 .show();
     }
 
-    @Override
-    public void onClick(View view) {
 
+    View.OnClickListener onClickCalculate = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            calculate();
+        }
+    };
+
+    private void calculate(){
         String amount = amountFrom.getText().toString();
 
         if(isNumeric(amount)){
@@ -119,9 +129,25 @@ public class MainActivity extends AppCompatActivity implements ICurrencyView, Vi
                 amountTo.setText(String.format(Locale.getDefault(), "%.3f", calculatedAmountTo.doubleValue()));
             }
 
-        }
-
+        }else
+            Toast.makeText(this, R.string.incorrectly_amount, Toast.LENGTH_SHORT).show();
     }
+
+
+    View.OnClickListener onClickSwitch = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+            int selectedCurrencyFrom = currencyFrom.getSelectedItemPosition();
+            int selectedCurrencyTo = currencyTo.getSelectedItemPosition();
+
+            currencyFrom.setSelection(selectedCurrencyTo);
+            currencyTo.setSelection(selectedCurrencyFrom);
+
+            calculate();
+
+        }
+    };
 
     public boolean isNumeric(String str){
         return str.matches("-?\\d+(\\.\\d+)?");
@@ -135,5 +161,6 @@ public class MainActivity extends AppCompatActivity implements ICurrencyView, Vi
         adapterTo = new CurrencyAdapter();
         currencyTo.setAdapter(adapterTo);
     }
+
 
 }
