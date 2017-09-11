@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Конвертер валют</string>
+    <string name="convert">Конвертировать</string>
+    <string name="error_loading_data">Пожалуйста, проверьте подключение к сети</string>
+    <string name="header_error_loading_data">Ошибка загрузки данных</string>
+
+    <string name="currency_from">Исходная валюта</string>
+    <string name="currency_to">Конвертировать в</string>
+
+    <string name="input_amount">Введите сумму</string>
+    <string name="outcome_amount">Итоговая сумма</string>
+
+</resources>
