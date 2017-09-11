@@ -108,17 +108,25 @@ public class MainActivity extends AppCompatActivity implements ICurrencyView, Vi
 
         String amount = amountFrom.getText().toString();
 
-        if(amount.isEmpty()){
-            amountTo.setText("");
-        }else{
-            BigDecimal decimalAmountFrom = new BigDecimal(amount);
-            BigDecimal calculatedAmountTo = presenter.calculate(decimalAmountFrom, (Valute) currencyFrom.getSelectedItem(), (Valute) currencyTo.getSelectedItem());
+        if(isNumeric(amount)){
 
-            amountTo.setText(String.format(Locale.getDefault(), "%.3f", calculatedAmountTo.doubleValue()));
+            if(amount.isEmpty()){
+                amountTo.setText("");
+            }else{
+                BigDecimal decimalAmountFrom = new BigDecimal(amount);
+                BigDecimal calculatedAmountTo = presenter.calculate(decimalAmountFrom, (Valute) currencyFrom.getSelectedItem(), (Valute) currencyTo.getSelectedItem());
+
+                amountTo.setText(String.format(Locale.getDefault(), "%.3f", calculatedAmountTo.doubleValue()));
+            }
+
         }
 
     }
 
+    public boolean isNumeric(String str){
+        return str.matches("-?\\d+(\\.\\d+)?");
+    }
+    
     private void initAdapters(){
 
         adapterFrom = new CurrencyAdapter();
