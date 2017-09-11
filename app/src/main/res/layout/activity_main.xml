@@ -29,111 +29,64 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/input_amount"
-            android:paddingTop="16dp"
-            android:paddingBottom="8dp" />
-
-        <EditText
-            android:id="@+id/amount_from"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:textSize="@dimen/text_hint"
-            android:gravity="center_vertical"
-            android:background="@android:color/transparent"
-            android:inputType="numberDecimal|numberSigned" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/currency_from"
-            android:elevation="1dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="8dp" />
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
 
         <Spinner
             android:id="@+id/spn_currency_from"
             android:minHeight="48dp"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:orientation="vertical">
-
-        <TextView
+        <ImageView
+            android:id="@+id/iv_switch_currency"
+            android:src="@drawable/swap_orientations"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/currency_to"
-            android:paddingTop="16dp"
-            android:paddingBottom="8dp" />
+            android:layout_gravity="center_vertical"/>
 
         <Spinner
             android:id="@+id/spn_currency_to"
+            android:layout_weight="1"
             android:minHeight="48dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/amount_from"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/outcome_amount"
-            android:paddingTop="16dp"
-            android:paddingBottom="8dp" />
-
-        <TextView
-            android:id="@+id/amount_to"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:gravity="center_vertical"
-            android:paddingRight="16dp"
-            android:paddingLeft="16dp"/>
-
-    </LinearLayout>
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:textSize="@dimen/text_hint"
+        android:gravity="center"
+        android:hint="@string/input_amount"
+        android:background="@android:color/transparent"
+        android:inputType="numberDecimal|numberSigned" />
 
     <Button
         android:id="@+id/calculate"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:gravity="center"
+        android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_gravity="right"
+        android:layout_gravity="center"
         android:text="@string/convert" />
+
+    <TextView
+        android:id="@+id/amount_to"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:gravity="center"
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:text="@string/outcome_amount"/>
 
 </LinearLayout>
