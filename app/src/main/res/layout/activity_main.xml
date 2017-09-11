@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:focusableInTouchMode="true"
-    android:weightSum="1"
-    android:paddingBottom="8dp"
-    android:paddingTop="8dp">
+    android:paddingBottom="8dp">
 
     <LinearLayout
         android:id="@+id/progressBar"
@@ -29,20 +27,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal">
 
         <Spinner
             android:id="@+id/spn_currency_from"
             android:minHeight="48dp"
+            android:layout_margin="16dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <ImageView
             android:id="@+id/iv_switch_currency"
-            android:src="@drawable/swap_orientations"
+            android:src="@drawable/swap_currency"
             android:layout_weight="1"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"/>
@@ -51,6 +54,7 @@
             android:id="@+id/spn_currency_to"
             android:layout_weight="1"
             android:minHeight="48dp"
+            android:layout_margin="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -60,12 +64,19 @@
         android:id="@+id/amount_from"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:padding="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:paddingTop="8dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:paddingBottom="16dp"
         android:textSize="@dimen/text_hint"
         android:gravity="center"
         android:hint="@string/input_amount"
-        android:background="@android:color/transparent"
+        android:textColorHint="@color/editTextColorHint"
+        android:textColorHighlight="@color/colorPrimary"
         android:inputType="numberDecimal|numberSigned" />
 
     <Button
@@ -74,8 +85,13 @@
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:gravity="center"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:textSize="@dimen/text_convert"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
         android:layout_gravity="center"
         android:text="@string/convert" />
 
@@ -83,10 +99,16 @@
         android:id="@+id/amount_to"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="48dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
-        android:layout_margin="16dp"
+        android:hint="@string/input_amount"
+        android:minHeight="48dp"
         android:padding="8dp"
-        android:text="@string/outcome_amount"/>
+        android:text="@string/outcome_amount"
+        android:textColorHint="@color/colorHint"
+        android:textSize="@dimen/text_hint" />
 
 </LinearLayout>
