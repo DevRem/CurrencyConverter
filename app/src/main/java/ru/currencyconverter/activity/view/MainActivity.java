@@ -123,9 +123,10 @@ public class MainActivity extends AppCompatActivity implements ICurrencyView{
                 amountTo.setText("");
             }else{
                 BigDecimal decimalAmountFrom = new BigDecimal(amount);
-                BigDecimal calculatedAmountTo = presenter.calculate(decimalAmountFrom, (Valute) currencyFrom.getSelectedItem(), (Valute) currencyTo.getSelectedItem());
+                Valute selectedCurrency = (Valute) currencyTo.getSelectedItem();
+                BigDecimal calculatedAmountTo = presenter.calculate(decimalAmountFrom, (Valute) currencyFrom.getSelectedItem(), selectedCurrency);
 
-                amountTo.setText(String.format(Locale.getDefault(), "%.3f", calculatedAmountTo.doubleValue()));
+                amountTo.setText(" = " + String.format(Locale.getDefault(), "%.3f", calculatedAmountTo.doubleValue()) + " " + selectedCurrency.getCharCode());
             }
 
         }else
@@ -144,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements ICurrencyView{
             currencyTo.setSelection(selectedCurrencyFrom);
 
             calculate();
+
 
         }
     };
